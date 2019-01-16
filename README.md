@@ -4,19 +4,15 @@ Overview
 ========
 
 Cinema is an example project which demonstrates the use of microservices for a fictional movie theater.
-The Cinema backend is powered by 4 microservices, all of witch happen to be written in Go, using MongoDB for manage the database and Docker to isolate and deploy the ecosystem.
 
- * Movie Service: Provides information like movie ratings, title, etc.
- * Show Times Service: Provides show times information.
- * Booking Service: Provides booking information. 
- * Users Service: Provides movie suggestions for users by communicating with other services.
+The Cinema backend is powered by 4 microservices, all of whitch happen to be written in Go, using MongoDB for manage the database and Docker to isolate and deploy the ecosystem.
+
+ * **Movie Service**: Provides information like movie ratings, title, etc.
+ * **Show Times Service**: Provides show times information.
+ * **Booking Service**: Provides booking information. 
+ * **Users Service**: Provides movie suggestions for users by communicating with other services.
 
 The Cinema use case is based on the project written in Python by [Umer Mansoor](https://github.com/umermansoor/microservices).
-
-The proyect structure is based in the knowledge learned in the book: Web
-Development with Go by Shiju Varghese, ISBN 978-1-4842-1053-6
-
-[Full multilanguage documentation with screenshots here.](http://mmorejon.github.io/en/blog/microservices-example-with-docker-go-and-mongodb/)
 
 Requirements
 ===========
@@ -24,32 +20,32 @@ Requirements
 * Docker 18.06.1-ce
 * Docker Compose 1.23.1
 
+Installation
+===========
+
 We must **add virtual domains** in order to use each **api entry point**. By default we are using: **movies.local**, **bookings.local**, **users.local**, **showtimes.local** and **monitor.local**
 
 **Virtual domains** has been defined in `docker-compose.yml` file and configured in `/etc/hosts` file. Add the following line in your `/etc/hosts` file:
 
-```
+```bash
 127.0.0.1   movies.local bookings.local users.local showtimes.local monitor.local
 ```
 
 **monitor.local** will be used to see the Dashboard created by Traefik.
 
-Starting services
-==============================
+## Starting services
 
 ```
 docker-compose up -d
 ```
 
-Stoping services
-==============================
+## Stoping services
 
 ```
 docker-compose stop
 ```
 
-Including new changes
-==============================
+## Including new changes
 
 If you need change some source code you can deploy it typing:
 
@@ -57,8 +53,7 @@ If you need change some source code you can deploy it typing:
 docker-compose build
 ```
 
-Restore database information
-======================
+## Restore database information
 
 You can start using an empty database for all microservices, but if you want you can restore a preconfigured data execute this step:
 
@@ -123,8 +118,12 @@ Access to the dashboard to see how Traefik organize the links.
 
 <img src="img/traefik-dashboard.png" alt="Traefik Dashboard" title="Traefik Dashboard" />
 
-### Significant Revisions
+# Author
+* [@alamin-mahamud](https://github.com/alamin-mahamud)
+* [@mmorejon](https://github.com/mmorejon)
 
+# Significant Revisions
+* [Cinema Microservices](https://github.com/mmorejon/microservices-docker-go-mongodb)
 * [Microservices - Martin Fowler](http://martinfowler.com/articles/microservices.html)
 * [Web Development with Go](http://www.apress.com/9781484210536)
 * [Umer Mansoor - Cinema](https://github.com/umermansoor/microservices)
